@@ -5,3 +5,8 @@
     width: 100vh;
     height: 100vh;
 }
+
+.no-border {
+    margin: 0;
+    padding: 0;
+}
