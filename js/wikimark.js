@@ -6,7 +6,11 @@
         var index = [];
         var footnote = [];
 
-        console.log('start parsing wikimark')
+        console.log('start parsing wikimark');
+
+        text = text.replace(/</g, '&lt').replace(/>/g, '&gt');
+
+        console.log('replaced all html tags')
 
         //code
         var rCode = /@@@([\S\s]*?)@@@/;
@@ -16,7 +20,7 @@
             code.push(content);
         }
 
-        console.log('saved code block')
+        console.log('saved code block');
 
         //titles
         var rTitle = /^(#+)(.*?)$/m;
@@ -31,7 +35,7 @@
             text = text.replace(rTitle, '<hr><h3 id="wikimark-title-' + indexBuf.join('-') + '"><strong>' + indexBuf.join('.') + ' ' + content + '</strong></h3>')
         }
 
-        console.log('parsed titles')
+        console.log('parsed titles');
 
         //footnotes
         var rFootnote = /\(\((.*?)\)\)/m;
@@ -41,7 +45,7 @@
             text = text.replace(rFootnote, '<a class="badge footnote-marker">' + footnote.length + '</a>');
         }
 
-        console.log('parsed footnotes')
+        console.log('parsed footnotes');
 
         //link
         var rLink = /\{\{(.*?)\}\}/m;
@@ -54,7 +58,7 @@
             }
         }
 
-        console.log('parsed links')
+        console.log('parsed links');
 
         //image
         var rImage = /\[\[(.*?)\]\]/m;
@@ -63,11 +67,11 @@
             if (content.includes('.')) {
                 text = text.replace(rLink, '<img src="' + content + '">');
             } else {
-                text = text.replace(rLink, '<img src="https://hyeonu.com/i/' + content + '">');
+                text = text.replace(rLink, '<img src="' + (wikimark.img || 'https://example.com/') + content + '">');
             }
         }
 
-        console.log('parsed images')
+        console.log('parsed images');
 
         //restore code
         var rsCode = /@<<<<(\d+)>>>>@/
