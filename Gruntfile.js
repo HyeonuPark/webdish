@@ -60,7 +60,7 @@ module.exports = function(grunt) {
                 commitMessage : grunt.template.today('yyyy-mm-dd ddd HH:MM:ss') + ' HyeonuPark <nemo1275@gmail.com>',
                 commitFiles : ['-a'],
                 createTag : false,
-                pushTo : grunt.file.read('git-remote.txt')
+                pushTo : 'github'
             }
         }
     });
