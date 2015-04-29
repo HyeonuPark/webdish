@@ -6,10 +6,21 @@
     <script src="js/sizechecker.js"></script>
     <link rel="stylesheet" href="css/app.min.css">
 </head>
-<body>
-<div id="super-container">
+<body ng-app="webdish">
 
+<div id="super-container">
+    <div class="col-xs-2 no-border" id="sidemenu-container">
+        <ui-view name="sidemenu"></ui-view>
+    </div>
+    <div class="col-xs-7 no-border" id="center-container">
+        <ui-view name="center"></ui-view>
+    </div>
+    <div class="col-xs-3 no-border" id="chat-container">
+        <ng-include src="'template/chat.html'"></ng-include>
+    </div>
 </div>
+
 <script src="js/app.min.js"></script>
+
 </body>
 </html>

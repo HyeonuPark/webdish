@@ -7,14 +7,13 @@ module.exports = function(grunt) {
                         'js/angular.min.js',
                         'js/binary.min.js',
                         'js/highlight.js',
-                        'js/sizechecker.js',
                         'js/ui-bootstrap.min.js',
                         'js/ui-router.min.js',
                         'js/wikimark.js',
-                        'js/app.js'
+                        'js/app.js',
+                        'js/app.controller.js'
                     ],
                     'js/m.app.min.js' : [
-                        'js/sizechecker.js',
                         'js/wikimark.js'
                     ]
                 }
