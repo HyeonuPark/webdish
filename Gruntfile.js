@@ -11,7 +11,8 @@ module.exports = function(grunt) {
                         'js/ui-router.min.js',
                         'js/wikimark.js',
                         'js/app.js',
-                        'js/app.controller.js'
+                        'js/app.controller.js',
+                        'js/app.factory.js'
                     ],
                     'js/m.app.min.js' : [
                         'js/wikimark.js'
